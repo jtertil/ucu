@@ -7,8 +7,17 @@ from .forms import UrlInputForm
 
 
 def index(request):
-    form = UrlInputForm()
-    return render(request, 'webapp/index.html', {'form': form})
+    form = UrlInputForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        new_url = form.save()
+        encoded = new_url.pk_encode()
+        short = request.build_absolute_uri(f'/{encoded}')
+        saving = len(new_url.url) - len(short)
+        return render(request, 'webapp/index.html', {
+            'short': short, 'saving': saving})
+    else:
+        form = UrlInputForm()
+        return render(request, 'webapp/index.html', {'form': form})
 
 
 def shortcut(request, s):

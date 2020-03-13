@@ -5,6 +5,7 @@
 {% block body %}
 <div class="vh-100 d-flex justify-content-lg-center">
   <div class="container-lg my-auto">
+    {%  if form %}
     <form method="post">
       {% csrf_token %}
         <div class="input-group mb-3">
@@ -16,12 +17,28 @@
           </div>
       </div>
     </form>
+    {% elif short %}
+    <div class="jumbotron">
+      <h1 class="display-4">{{ short }}</h1>
+      <hr class="my-4">
+      <p>
+        {% if saving > 0 %}
+        Great! Your link is shorter by {{ saving }} symbols.
+        {% else %}
+        No win today. Your new link isn't shorter than original one.
+        {% endif %}
+      </p>
+      <button class="btn btn-outline-secondary" data-clipboard-text="{{ short }}">Copy to clipboard</button>
+      <a href="{% url 'index' %}"><button class="btn btn-outline-secondary">Cut another one</button></a>
+    </div>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
 
 {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
 <script>
-console.log('hello!')
+  new ClipboardJS('.btn');
 </script>
 {% endblock %}
