@@ -3,6 +3,7 @@ from unittest import skip
 from django.db import IntegrityError, DataError
 from django.test import TestCase
 
+from .helpers import converter, BASE_SYMBOLS
 from .models import ShortCut
 
 
@@ -47,7 +48,9 @@ class ShortCutTest(TestCase):
         self.assertRaises(DataError, s, url=self.invalid_url)
 
     def test_shortcut_pk_encode(self):
-        pass
+        s = ShortCut.objects.create(url=self.valid_url)
+        self.assertEqual(s.pk_encode(), BASE_SYMBOLS[1])
 
     def test_shortcut_pk_decode(self):
-        pass
+        s = ShortCut.objects.create(url = self.valid_url)
+        self.assertEqual(s.pk_decode('jmr'), converter.decode('jmr'))
