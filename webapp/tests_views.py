@@ -4,7 +4,8 @@ from django.test import TestCase
 class IndexViewTest(TestCase):
 
     def test_index_response(self):
-        pass
+        r = self.client.get('/')
+        self.assertEqual(r.status_code, 200)
 
 
 class ShortcutViewTest(TestCase):
