@@ -13,7 +13,7 @@ class ShortCutTest(TestCase):
     long_url = 'https://www.google.com/search?client=ubuntu&hs=9sT&channel=' \
                'fs&q=Pneumonoultramicroscopicsilicovolcanoconiosis&spell=' \
                '1&sa=X&ved=2ahUKEwj3wra805foAhWxtYsKHexcBH4QBSgAegQIEBAq'
-    toolong_url = f'https//www.{"a" * 4000}.com'
+    toolong_url = f'https//www.{"a" * 2000}.com'
     null_url = None
     invalid_url = 'somestring'
 

@@ -1,9 +1,23 @@
 {% extends "webapp/base.html" %}
-
+{% load widget_tweaks %}
 {% block title %}Index{% endblock %}
 
 {% block body %}
-<p>hello!</p>
+<div class="vh-100 d-flex justify-content-lg-center">
+  <div class="container-lg my-auto">
+    <form method="post">
+      {% csrf_token %}
+        <div class="input-group mb-3">
+          {% render_field form.url class="form-control" placeholder='https://www.example.com' %}
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-outline-secondary">
+              Cut it!
+            </button>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock %}
 
 {% block scripts %}

@@ -3,10 +3,12 @@ from django.shortcuts import render, get_object_or_404
 
 from .helpers import converter, BASE_SYMBOLS
 from .models import ShortCut
+from .forms import UrlInputForm
 
 
 def index(request):
-    return render(request, 'webapp/index.html')
+    form = UrlInputForm()
+    return render(request, 'webapp/index.html', {'form': form})
 
 
 def shortcut(request, s):
