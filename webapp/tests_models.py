@@ -52,5 +52,5 @@ class ShortCutTest(TestCase):
         self.assertEqual(s.pk_encode(), BASE_SYMBOLS[1])
 
     def test_shortcut_pk_decode(self):
-        s = ShortCut.objects.create(url = self.valid_url)
+        s = ShortCut.objects.create(url=self.valid_url)
         self.assertEqual(s.pk_decode('jmr'), converter.decode('jmr'))

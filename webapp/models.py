@@ -12,5 +12,5 @@ class ShortCut(models.Model):
     def pk_encode(self):
         return converter.encode(self.pk)
 
-    def pk_decode(self, shortcut):
-        return converter.decode(shortcut)
+    def pk_decode(self, s):
+        return converter.decode(s)
