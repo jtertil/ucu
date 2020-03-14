@@ -18,5 +18,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('<str:s>', views.shortcut, name='shortcut'),
 ]
 
