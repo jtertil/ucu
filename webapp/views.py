@@ -7,6 +7,9 @@ from .forms import UrlInputForm
 
 
 def index(request):
+    """
+    displays form, or shortcut link if form is submitted via POST and valid
+    """
     form = UrlInputForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         new_url = form.save()

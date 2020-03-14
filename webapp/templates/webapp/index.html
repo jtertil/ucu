@@ -21,7 +21,7 @@
     <div class="jumbotron">
       <h1 class="display-4">{{ short }}</h1>
       <hr class="my-4">
-      <p>
+      <p id="info">
         {% if saving > 0 %}
         Great! Your link is shorter by {{ saving }} symbols.
         {% else %}
@@ -39,6 +39,16 @@
 {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
 <script>
-  new ClipboardJS('.btn');
+  var clipboard = new ClipboardJS('.btn');
+
+  clipboard.on('success', function(e) {
+    $('#info').text("All good, shortcut copied.")
+    e.clearSelection();
+  });
+
+  clipboard.on('error', function(e) {
+    $('#info').text("Sorry, I can't help. You must copy the link by yourself.")
+  });
+
 </script>
 {% endblock %}
