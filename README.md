@@ -21,6 +21,14 @@ so please forgive me if the application starts with a few seconds delay.</small>
  
 ![convert](doc/convert.png)
 
+#### How it looks?
+
+ * Nothing fancy, just bootstrap.
+ 
+![mockup1](doc/mockup1.png)
+
+![mockup2](doc/mockup2.png)
+
 #### Main requirements:
  - [x] accept URL from (anonymous) user
  - [x] generate a shortened URL in the form `<your domain>/<shortcut>`
