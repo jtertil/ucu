@@ -9,7 +9,7 @@ from .models import ShortCut
 
 class ShortCutTest(TestCase):
 
-    valid_url = 'https://www.jmr.pl'
+    valid_url = 'https://www.google.com'
     long_url = 'https://www.google.com/search?client=ubuntu&hs=9sT&channel=' \
                'fs&q=Pneumonoultramicroscopicsilicovolcanoconiosis&spell=' \
                '1&sa=X&ved=2ahUKEwj3wra805foAhWxtYsKHexcBH4QBSgAegQIEBAq'
@@ -53,4 +53,4 @@ class ShortCutTest(TestCase):
 
     def test_shortcut_pk_decode(self):
         s = ShortCut.objects.create(url=self.valid_url)
-        self.assertEqual(s.pk_decode('jmr'), converter.decode('jmr'))
+        self.assertEqual(s.pk_decode('sample'), converter.decode('sample'))
