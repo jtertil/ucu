@@ -7,7 +7,7 @@ I tried to build possible most simple, fast and robust URL cutter, I can build w
 The assumption was the public availability of shortened URLs, 
 so there is no security here, anyone who knows BASE_SYMBOLS can download all addresses saved in the database.
 
-#### How it work?
+#### How it works?
 Check out [live demo](https://ucu.herokuapp.com/).
 
 <small>! Note that Heroku free hosting goes in suspended after a couple of minutes of inactivity, 
@@ -42,7 +42,7 @@ so please forgive me if the application starts with a few seconds delay.</small>
  * gunicorn
  * Bootstrap
 
-#### What I learned?
+#### What I learnt?
 * Simple is better than complex.
 * Dealing with static files when deploying on Heroku Cloud was a kind of a pain in.. .
 
