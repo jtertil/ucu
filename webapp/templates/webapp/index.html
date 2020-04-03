@@ -1,6 +1,6 @@
 {% extends "webapp/base.html" %}
 {% load widget_tweaks %}
-{% block title %}Index{% endblock %}
+{% block title %}UCU{% endblock %}
 
 {% block body %}
 <div class="vh-100 d-flex justify-content-lg-center">
@@ -11,7 +11,7 @@
         <div class="input-group mb-3">
           {% render_field form.url class="form-control" placeholder='https://www.example.com' %}
           <div class="input-group-append">
-            <button type="submit" class="btn btn-outline-secondary">
+            <button type="submit" class="btn btn-outline-info">
               Cut it!
             </button>
           </div>
@@ -19,7 +19,7 @@
     </form>
     {% elif short %}
     <div class="jumbotron">
-      <h1 class="display-4">{{ short }}</h1>
+      <h4>{{ short }}</h4>
       <hr class="my-4">
       <p id="info">
         {% if saving > 0 %}
@@ -28,8 +28,8 @@
         No win today. Your new link isn't shorter than original one.
         {% endif %}
       </p>
-      <button class="btn btn-outline-secondary" data-clipboard-text="{{ short }}">Copy to clipboard</button>
-      <a href="{% url 'index' %}"><button class="btn btn-outline-secondary">Cut another one</button></a>
+      <button class="btn btn-outline-info" data-clipboard-text="{{ short }}">Copy to clipboard</button>
+      <a href="{% url 'index' %}"><button class="btn btn-outline-info">Cut another one</button></a>
     </div>
     {% endif %}
   </div>
